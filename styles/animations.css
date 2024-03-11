@@ -12,3 +12,137 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+/* для указателя в темах */
+
+@keyframes theme-pointer {
+    from {
+      transform: translateX(-21px);
+    }
+    to {
+      transform: translateX(-17px);
+    }
+  }
+
+/* для кнопки сердца */
+
+.card__icon-button:focus {
+  outline: none;
+}
+  
+.card__icon-button:focus-visible {
+  border: 2px var(--accent-color) solid;
+  transition: border 0.3s ease;
+}
+
+/* анимации для svg-иконки сердца */
+
+.like-icon.is-liked {
+  .heart {
+    animation: heart-is-liked 0.3s ease-in alternate;
+    transform-origin: center;
+  }
+
+  .sparks {
+    animation: sparks-is-liked 0.3s 0.3s ease-in alternate;
+  }
+}
+
+.contour {
+  transition-duration: 0.3s;
+}
+
+.core {
+  transition-delay: 0.03s;
+} 
+
+.main-body {
+  transition-delay: 0s;
+}
+
+.heart:hover {
+  .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s 0s;
+  }
+
+  .main-body {
+    fill: var(--accent-color);
+    transition: fill 0.3s 0.05s;
+  }
+}
+
+.heart:active {
+  .core {
+  fill: var(--icon-fill);
+  transition: fill 0.3s;
+  }
+
+  .main-body {
+    fill: var(--icon-fill);
+    transition: fill 0.3s 0.05s;
+  }
+}
+
+.like-icon.is-liked {
+  .core {
+    fill: var(--icon-fill);
+    transition: fill 0.3s;
+  }
+  
+  .main-body {
+    fill: var(--icon-fill);
+    transition: fill 0.3s 0.05s;
+  }
+  .contour {
+  fill: var(--icon-fill);
+  }
+}
+
+@keyframes heart-is-liked {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes sparks-is-liked {
+  0% {
+    fill: var(--accent-color);
+  }
+
+  100% {
+    fill: var(--icon-fill);
+  }
+}
+
+/* для кнопки like */
+
+.card__like-button:focus {
+  outline: none;
+}
+  
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+  
+.card__like-button::before{
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+  
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
