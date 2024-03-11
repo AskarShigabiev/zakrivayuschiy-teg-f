@@ -37,17 +37,6 @@
 
 /* анимации для svg-иконки сердца */
 
-.like-icon.is-liked {
-  .heart {
-    animation: heart-is-liked 0.3s ease-in alternate;
-    transform-origin: center;
-  }
-
-  .sparks {
-    animation: sparks-is-liked 0.3s 0.3s ease-in alternate;
-  }
-}
-
 .contour {
   transition-duration: 0.3s;
 }
@@ -97,6 +86,15 @@
   .contour {
   fill: var(--icon-fill);
   }
+
+  .heart {
+    animation: heart-is-liked 0.3s ease-in alternate;
+    transform-origin: center;
+  }
+
+  .sparks {
+    animation: sparks-is-liked 0.3s 0.3s ease-in alternate;
+  }
 }
 
 @keyframes heart-is-liked {
@@ -130,7 +128,7 @@
   transition: box-shadow 0.3s ease;
 }
   
-.card__like-button::before{
+.card__like-button::before {
   content: '';
   position: absolute;
   inset-block-start: 0;

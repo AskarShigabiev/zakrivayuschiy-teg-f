@@ -66,11 +66,8 @@
 .theme-menu__list {
   display: grid;
   gap: 10px;
-} 
-
-.theme-menu__list {
   font-size: 14px;
-}
+} 
 
 .theme-menu__button {
   text-transform: uppercase;
@@ -217,7 +214,7 @@
   font-size: 14px;
   line-height: 12.6px;
   background-color: transparent;
-  border: var(--border);  
+  border: var(--border);
   width: 130px;
   cursor: pointer;
   position: relative;
@@ -247,7 +244,7 @@
   position: relative;
 }
 
-.button__save::before{
+.button__save::before {
   content: '';
   position: absolute;
   inset-block-start: 0;
@@ -310,12 +307,12 @@
   outline: none;
 }
 
-.button__dialog-close:focus-visible  {
+.button__dialog-close:focus-visible {
   box-shadow: 2px 2px 0 0 var(--accent-color);
   transition: box-shadow 0.3s ease;
 }
 
-.button__dialog-close::before{
+.button__dialog-close::before {
   content: '';
   position: absolute;
   inset-block-start: 102px;
@@ -358,7 +355,7 @@
   filter: hue-rotate(-40deg);
 }
 
-.filter_opacity{
+.filter_opacity {
   filter: opacity(90%)
 }
 
