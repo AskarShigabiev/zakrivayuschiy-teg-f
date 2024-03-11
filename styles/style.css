@@ -67,7 +67,7 @@
   display: grid;
   gap: 10px;
   font-size: 14px;
-} 
+}
 
 .theme-menu__button {
   text-transform: uppercase;
@@ -197,8 +197,9 @@
 
 .button__text {
   font-family: var(--accent-font);
-  color: var(--color);
+  color: var(--color-for-mix);
   font-size: 14px;
+  mix-blend-mode: difference;
 }
 
 .card__icon-button {
@@ -218,11 +219,6 @@
   width: 130px;
   cursor: pointer;
   position: relative;
-}
-
-.button__text {
-  color: var(--color-for-mix);
-  mix-blend-mode: difference;
 }
 
 .footer {
@@ -332,7 +328,7 @@
 /* фильтры для изображений в карточках */
 
 .filter_brightness {
-  filter: brightness(40%);
+  filter: brightness(75%);
 }
 
 .filter_contrast {
