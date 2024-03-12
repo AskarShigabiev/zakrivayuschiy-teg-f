@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Закрывающий тег</title>
-    <meta name="color-scheme" content="dark light">
+    <meta name="color-scheme" content="light dark">
     <link rel="icon" href="./images/favicon.ico" sizes="any"/>
     <link rel="icon" href="./images/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="./images/mobile-icon.png"/>
@@ -19,8 +19,8 @@
   <body class="page">
     <header class="header">
       <div class="header__logo">
-        <h1 class="header__logo-title">&lt;/HTML&gt;</h1>
-        <p class="header__logo-text">закрывающий тег</p>
+        <a class="header__logo-title">&lt;/HTML&gt;</a>
+        <h1 class="header__logo-text">закрывающий тег</h1>
       </div>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
@@ -413,28 +413,27 @@
     <footer class="footer">
       <button class="button__save"
         type="button" 
-        onclick="window['dialog-id'].showModal();" 
+        onclick="window['dialog-id'].show();" 
         aria-controls="dialog-id"
         >
-        <svg class="button__save-floppy" width="37" height="37" viewBox="0 0 37 37">
+        <svg class="button__save-floppy" width="39" height="39" viewBox="0 0 39 39">
           <use href="./svg/floppy.svg#floppy"></use>
         </svg>
         <span class="button__text">Сохранить на память</span>
       </button>
     </footer>
       <dialog class="dialog" id="dialog-id">
-        <div class="dialog__content">
-          <svg class="button__dialog-floppy" width="37" height="37" viewBox="0 0 37 37">
-            <use href="./svg/floppy.svg#floppy"></use>
-          </svg>
-          <p class="button__text">
-            Вставьте<br> дискету, чтобы<br> продолжить
-          </p>
-        </div>
-        <form method="dialog">
+          <div class="dialog__content">
+            <svg class="button__dialog-floppy" width="50" height="50" viewBox="0 0 39 39">
+              <use href="./svg/floppy.svg#floppy"></use>
+            </svg>
+            <p class="button__text">
+              Вставьте дискету, чтобы продолжить
+            </p>
+          </div>
+          <form method="dialog">
           <button class="button__dialog-close" 
-            type="button"
-            onclick="window['dialog-id'].close();"
+            type="submit"
             >
             <span class="button__text">ок</span>
           </button>

@@ -53,6 +53,7 @@
   .core {
   fill: var(--accent-color);
   transition: fill 0.3s 0s;
+  cursor: pointer;
   }
 
   .main-body {
@@ -143,4 +144,5 @@
   
 .card__like-button:hover::before {
   transform: scaleX(1);
+  cursor: pointer;
 }

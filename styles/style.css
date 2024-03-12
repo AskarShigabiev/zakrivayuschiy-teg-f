@@ -18,7 +18,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   color: var(--color);
-  font-family: var(--main-font);
+  font-family: var(--main-font, sans-serif);
   font-variation-settings: 'wght' var(--font-weiht-content);
   background-color: var(--background-color);
   background-image: var(--background-gradient);
@@ -32,11 +32,11 @@
   gap: 24px;
   background-color: var(--background-color);
   margin-block-start: 100px;
-  margin-block-end: 104px;
+  margin-block-end: 102px;
   margin-inline: auto;
   outline: var(--border);
   outline-offset: -2px;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font, fantasy);
   max-width: 700px;
 }
 
@@ -47,8 +47,9 @@
 
 .header__logo-title {
   min-inline-size: 320px;
-  margin-block-start: 120px;
+  margin-block-start: 122px;
   font-size: clamp(3.0625rem, 2.7768rem + 1.4286vw, 4.0625rem);
+  cursor: pointer;
 }
 
 .header__logo-text {
@@ -59,12 +60,14 @@
 }
 
 .header__theme-menu {
-  margin-inline-start: 134px;
+  align-self: center;
   margin-block-end: 22px;
+  margin-inline-start: 19px;
 } 
 
 .theme-menu__list {
   display: grid;
+  justify-content: center;
   gap: 10px;
   font-size: 14px;
 }
@@ -152,7 +155,7 @@
 
 .card__content-watermark {
   position: absolute;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font, fantasy);
   text-shadow: 
     1px 1px var(--waterm-color),
     -1px 0px var(--waterm-color),
@@ -166,9 +169,9 @@
   text-transform: uppercase;
 }
 
-@supports ((stroke: 1px var(--waterm-color)) or (-webkit-text-stroke: 1px var(--waterm-color))) {
+@supports ((text-stroke: 1px var(--waterm-color)) or (-webkit-text-stroke: 1px var(--waterm-color))) {
   .card__content-watermark {
-    stroke: 1px var(--waterm-color);
+    text-stroke: 1px var(--waterm-color);
     -webkit-text-stroke: 1px var(--waterm-color);
     text-shadow: none;
   }
@@ -196,7 +199,7 @@
 }
 
 .button__text {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font, fantasy);
   color: var(--color-for-mix);
   font-size: 14px;
   mix-blend-mode: difference;
@@ -211,7 +214,7 @@
 }
 
 .card__like-button {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font, fantasy);
   font-size: 14px;
   line-height: 12.6px;
   background-color: transparent;
@@ -228,7 +231,7 @@
 }
 
 .button__save {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font, fantasy);
   background-color: var(--background-color);
   border: var(--border);
   padding: 15px 20px;
@@ -255,6 +258,7 @@
 
 .button__save:hover::before {
   transform: scaleX(1);
+  cursor: pointer;
 }
 
 .button__save:focus {
@@ -272,11 +276,15 @@
   margin-inline-start: 7px;
 }
 
-.dialog {
+.dialog[open] {
   background-color: var(--background-color);
-  border: var(--border);
-  padding: 30px;
+  outline: var(--border);
+  border: none;
+  padding: 30px 40px;
   color: var(--color);
+  max-width: 341px;
+  max-height: 191px;
+  text-transform: uppercase;
 }
  
 .dialog::backdrop {
@@ -285,16 +293,18 @@
 } 
 
 .dialog__content {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  line-height: 21px;
+  gap: 8px;
   margin-block-end: 30px;
 }
 
 .button__dialog-close {
   border: var(--border);
   background-color: transparent;
-  padding: 12.5px 114.5px;
   text-transform: uppercase;
+  padding: 7px 114.5px;
 }
 
 /* для кнопки закрытия в модальном окне */
@@ -311,11 +321,11 @@
 .button__dialog-close::before {
   content: '';
   position: absolute;
-  inset-block-start: 102px;
-  inset-block-end: 30px;
-  inset-inline-start: 30px;
-  inset-inline-end: 30px;
   background-color: var(--accent-color);
+  inset-block-start: 125px;
+  inset-block-end: 32px;
+  inset-inline-start: 40px;
+  inset-inline-end: 40px;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s ease-in-out;
@@ -323,6 +333,11 @@
 
 .button__dialog-close:hover::before {
   transform: scaleX(1);
+  cursor: pointer;
+}
+
+.button__dialog-floppy {
+  margin-block-start: 12px;
 }
 
 /* фильтры для изображений в карточках */
@@ -363,7 +378,7 @@
   }
 }
 
-@media (700px < width <= 1440px) {
+@media (700px <= width ) {
 .header {
   margin-block-end: 100px;
 }
@@ -377,7 +392,6 @@
   }
 
   .header__theme-menu {
-    margin-inline-start: 188px;
     margin-block-end: 25px;
   }
 
@@ -395,21 +409,28 @@
   }
 
   .button__save {
-    padding: 11px 18px;
     flex-direction: row;
-    gap: 1px;
+    padding: 11px 20px;
   }
 
   .button__save-floppy {
-    margin-block-start: 4px;
-    margin-inline-start: 0;
     width: 29px;
     height: 29px;
+    margin-inline-start: 0;
+    margin-block-start: 4px;
   }
 
-  .button__dialog-floppy {
-    margin-block-start: 5px;
-    width: 40px;
-    height: 40px;
+  .dialog[open] {
+    padding: 30px;
+    width: 353px;
+    height: 191px;
+  }
+
+  .dialog__content {
+    gap: 10px;
+  }
+
+  .button__dialog-close {
+    padding: 7px 128px;
   }
 }
