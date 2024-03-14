@@ -422,8 +422,8 @@
 
   .dialog[open] {
     padding: 30px;
-    width: 353px;
-    height: 191px;
+    max-width: 353px;
+    max-height: 191px;
   }
 
   .dialog__content {
@@ -432,5 +432,12 @@
 
   .button__dialog-close {
     padding: 7px 128px;
+  }
+
+  .button__dialog-close::before {
+    inset-block-start: 125px;
+    inset-block-end: 32px;
+    inset-inline-start: 30px;
+    inset-inline-end: 35px;
   }
 }
